@@ -1,6 +1,6 @@
 # app/routers/items.py (예시)
 from fastapi import APIRouter, HTTPException
-from ..schemas import Item  # Item 스키마 임포트
+from ..schemas import Item, ItemCreate
 
 router = APIRouter(prefix="/items", tags=["items"])
 
@@ -9,10 +9,10 @@ item_id_counter = 0
 
 
 @router.post("/", response_model=Item, status_code=201)
-async def create_item(item: Item):
+async def create_item(item: ItemCreate):
     global item_id_counter
     item_id_counter += 1
-    new_item = item.dict()
+    new_item = item.model_dump()
     new_item["id"] = item_id_counter
     items.append(new_item)
     return new_item
