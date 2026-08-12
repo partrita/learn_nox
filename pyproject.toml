@@ -9,7 +9,7 @@ dependencies = [
     "httpx>=0.28.1",
     "lightgbm>=4.6.0",
     "pandas>=2.2.3",
-    "requests>=2.32.3",
+    "requests>=2.33.0",
     "rich>=14.0.0",
     "scikit-learn>=1.6.1",
 ]
